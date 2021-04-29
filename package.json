@@ -1,0 +1,14 @@
+{
+  "name": "iwproject",
+  "version": "0.0.1",
+  "description": "university project using node and express",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bryan0312",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
