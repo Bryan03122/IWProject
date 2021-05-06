@@ -1,0 +1,22 @@
+<%- include("../templates/head", {title: 'Editar Marcas'}) %> 
+    <% if (marca) { %> 
+    <div class = 'container mt-4'>
+        <h1>Editar</h1>
+        <div class="card border-secondary">
+            <div class="card-header">Editar Registro</div>
+            <div class="card-body">
+                <form action="/marcas/update" method="POST">
+                    <input id="id" name="id" value="<%= marca.id_marca%>" hidden>
+                    <div class="mb-3">
+                        <label for="marca" class="form-label">Marca</label>
+                        <input type="text" name="marca" id="marca" value="<%= marca.marca%>" class="form-control" tabindex="1">
+                    </div>
+                    <button type="submit" class="btn btn-primary" tabindex="5">Guardar</button>
+                    <a href="/marcas" class="btn btn-secondary">Cancelar</a>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+    <% } %> 
+<%- include("../templates/footer") %> 

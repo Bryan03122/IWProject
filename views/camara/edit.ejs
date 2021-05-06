@@ -1,0 +1,71 @@
+<%- include("../templates/head", {title: 'Editar Cámara'}) %> 
+    <% if (camara) { %> 
+    <div class = 'container mt-4'>
+        <h1>Editar</h1>
+        <div class="card border-secondary">
+            <div class="card-header">Editar Registro</div>
+            <div class="card-body">
+                <form action="/camaras/update" method="POST">
+
+                    <input id="id" name="id" value="<%= camara.id_camara%>" hidden>
+
+                    <div class="mb-3">
+                        <label for="modelo" class="form-label">Modelo</label>
+                        <input type="text" name="modelo" id="modelo" value="<%= camara.modelo%>" class="form-control" tabindex="1">
+                    </div>
+
+                    <div class="mb-3">
+                    <label for="marca" class="form-label">Marca</label>
+                        <select name="marca" id="marca" class="form-select" tabindex="2"> 
+                                <option value="<%= camara.marca_id %>" selected hidden><%= camara.marca%></option>
+                            <% marca.forEach((marca) => { %>
+                                <option value="<%= marca.id_marca %>"> <%= marca.marca%> </option>
+                            <% }) %> 
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                    <label for="montura" class="form-label">Montura</label>
+                        <select name="montura" id="montura" class="form-select" tabindex="3"> 
+                                <option value="<%= camara.montura_id %>" selected hidden><%= camara.montura_modelo%></option>
+                            <% montura.forEach((montura) => { %>
+                                <option value="<%= montura.id_montura %>"> <%= montura.modelo%> </option>
+                            <% }) %> 
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="resolucion" class="form-label">Resolución</label>
+                        <input type="text" name="resolucion" id="resolucion" value="<%= camara.resolucion%>" class="form-control" tabindex="4">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="isominimo" class="form-label">ISO mínimo</label>
+                        <input type="text" name="isominimo" id="isominimo" value="<%= camara.isoMinimo%>" class="form-control" tabindex="1">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="isomaximo" class="form-label">ISO máximo</label>
+                        <input type="text" name="isomaximo" id="isomaximo" value="<%= camara.isoMaximo%>" class="form-control" tabindex="1">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="tamaniosensor" class="form-label">Tamaño del Sensor</label>
+                        <input type="text" name="tamaniosensor" id="tamaniosensor" value="<%= camara.tamanioSensor%>" class="form-control" tabindex="1">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="precio" class="form-label">Precio</label>
+                        <input type="text" name="precio" id="precio" value="<%= camara.precio%>" class="form-control" tabindex="1">
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary" tabindex="5">Guardar</button>
+                    <a href="/camaras" class="btn btn-secondary">Cancelar</a>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+    <% } %> 
+<%- include("../templates/footer") %> 

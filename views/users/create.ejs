@@ -1,0 +1,24 @@
+<%- include("../templates/head", {title: 'Crear Usuarios'}) %> 
+
+    <div class = 'container mt-4'>
+        <h1>Crear <%= title %></h1>
+        <div class="card border-secondary">
+            <div class="card-header">Nuevo Registro</div>
+            <div class="card-body">
+                <form action="/users/save" method="POST">
+                    <div class="mb-3">
+                        <label for="user" class="form-label">Usuario</label>
+                        <input type="text" name="user" id="user" class="form-control" tabindex="1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="user" class="form-label">Contraseña</label>
+                        <input type="password" name="password" id="password" class="form-control" tabindex="2">
+                    </div>
+                    <button type="submit" class="btn btn-primary" tabindex="5">Guardar</button>
+                    <a href="/users" class="btn btn-secondary">Cancelar</a>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+<%- include("../templates/footer") %> 

@@ -1,0 +1,67 @@
+<%- include("../templates/head", {title: 'Cámaras'}) %> 
+    <div class = 'container mt-4'>
+        <h1><%= title %></h1>
+        <a href="/camaras/create" class = "btn btn-outline-primary mt-3"><i class="fas fa-plus-circle"></i></a>
+        
+        <table id="camara" class="table table-bordered table-striped text-center mt-5">
+            <thead>
+                <tr class="bg-dark text-white">
+                    <th scope="col">ID</th>
+                    <th scope="col">MODELO</th>
+                    <th scope="col">MARCA</th>
+                    <th scope="col">MONTURA</th>
+                    <th scope="col">RESOLUCIÓN</th>
+                    <th scope="col">ISO MÍNIMO</th>
+                    <th scope="col">ISO MÁXIMO</th>
+                    <th scope="col">TAMAÑO DEL SENSOR</th>
+                    <th scope="col">PRECIO</th>
+                    <th scope="col">ACCIONES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% results.forEach((camara) => { %> 
+                <tr>
+                    <td><%= camara.id_camara %></td>
+                    <td><%= camara.modelo %></td>
+                    <td><%= camara.marca%></td>
+                    <td><%= camara.montura_modelo%></td>
+                    <td><%= camara.resolucion%> mpx</td>
+                    <td><%= camara.isoMinimo%></td>
+                    <td><%= camara.isoMaximo%></td>
+                    <td><%= camara.tamanioSensor%></td>
+                    <td>$<%= camara.precio%></td>
+                    <td>
+                        <a href="/camaras/edit/<%= camara.id_camara %>" class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
+                        <a onclick="confirmar(<%= camara.id_camara %>)" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+                <% }) %> 
+            </tbody>
+        </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        $(document).ready(function() {
+        $('#camara').DataTable();
+        });
+
+        function confirmar(id){
+            Swal.fire({
+            title: '¿Estás seguro de eliminar el registro?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: `#3085d6`,
+            cancelButtonCOlor: `#d33`,
+            confirmButtonText: 'Confirmar',
+            cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location = '/camaras/delete/'+id
+                } 
+            })
+        }
+    </script>
+   
+<%- include("../templates/footer") %> 

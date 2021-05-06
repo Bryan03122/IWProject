@@ -1,0 +1,53 @@
+<%- include("../templates/head", {title: 'Marcas'}) %> 
+    <div class = 'container mt-4'>
+        <h1><%= title %></h1>
+        <a href="/marcas/create" class = "btn btn-outline-primary mt-3"><i class="fas fa-plus-circle"></i></a>
+        
+        <table id="marca" class="table table-bordered table-striped text-center mt-5">
+            <thead>
+                <tr class="bg-dark text-white">
+                    <th scope="col">ID</th>
+                    <th scope="col">MARCA</th>
+                    <th scope="col">ACCIONES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% results.forEach((marca) => { %> 
+                <tr>
+                    <td><%= marca.id_marca %></td>
+                    <td><%= marca.marca %></td>
+                    <td>
+                        <a href="/marcas/edit/<%= marca.id_marca %>" class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
+                        <a onclick="confirmar(<%= marca.id_marca %>)" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+                <% }) %> 
+            </tbody>
+        </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        $(document).ready(function() {
+        $('#marca').DataTable();
+        });
+
+        function confirmar(id){
+            Swal.fire({
+            title: '¿Estás seguro de eliminar el registro?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: `#3085d6`,
+            cancelButtonCOlor: `#d33`,
+            confirmButtonText: 'Confirmar',
+            cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location = '/marcas/delete/'+id
+                } 
+            })
+        }
+    </script>
+   
+<%- include("../templates/footer") %> 

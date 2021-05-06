@@ -1,0 +1,29 @@
+<%- include("../templates/head", {title: 'Crear Monturas'}) %> 
+
+    <div class = 'container mt-4'>
+        <h1>Crear <%= title %></h1>
+        <div class="card border-secondary">
+            <div class="card-header">Nuevo Registro</div>
+            <div class="card-body">
+                <form action="/monturas/save" method="POST">
+                    <div class="mb-3">
+                        <label for="modelo" class="form-label">Modelo</label>
+                        <input type="text" name="modelo" id="modelo" class="form-control" tabindex="1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="marca" class="form-label">Marca</label>
+                        <select name="marca" id="marca" class="form-select" tabindex="2"> 
+                                <option value="" selected disabled hidden>Seleccione una opción</option>
+                            <% results.forEach((marca) => { %>
+                                <option value="<%= marca.id_marca %>"> <%= marca.marca%> </option>
+                            <% }) %> 
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" tabindex="5">Guardar</button>
+                    <a href="/monturas" class="btn btn-secondary">Cancelar</a>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+<%- include("../templates/footer") %> 

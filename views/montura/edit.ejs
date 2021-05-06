@@ -1,0 +1,31 @@
+<%- include("../templates/head", {title: 'Editar Monturas'}) %> 
+    <% if (montura) { %> 
+    <div class = 'container mt-4'>
+        <h1>Editar</h1>
+        <div class="card border-secondary">
+            <div class="card-header">Editar Registro</div>
+            <div class="card-body">
+                <form action="/monturas/update" method="POST">
+                    <input id="id" name="id" value="<%= montura.id_montura%>" hidden>
+                    <div class="mb-3">
+                        <label for="montura" class="form-label">Modelo</label>
+                        <input type="text" name="montura" id="montura" value="<%= montura.modelo%>" class="form-control" tabindex="1">
+                    </div>
+                    <div class="mb-3">
+                    <label for="marca" class="form-label">Marca</label>
+                        <select name="marca" id="marca" class="form-select" tabindex="2"> 
+                                <option value="<%= montura.marca_id %>" selected hidden><%= montura.marca%></option>
+                            <% marca.forEach((marca) => { %>
+                                <option value="<%= marca.id_marca %>"> <%= marca.marca%> </option>
+                            <% }) %> 
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" tabindex="5">Guardar</button>
+                    <a href="/monturas" class="btn btn-secondary">Cancelar</a>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+    <% } %> 
+<%- include("../templates/footer") %> 

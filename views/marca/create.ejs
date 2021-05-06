@@ -1,0 +1,21 @@
+<%- include("../templates/head", {title: 'Crear Marcas'}) %> 
+
+    <div class = 'container mt-4'>
+        <h1>Crear <%= title %></h1>
+        <div class="card border-secondary">
+            <div class="card-header">Nuevo Registro</div>
+            <div class="card-body">
+                <form action="/marcas/save" method="POST">
+                    <div class="mb-3">
+                        <label for="marca" class="form-label">Marca</label>
+                        <input type="text" name="marca" id="marca" class="form-control" tabindex="1">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" tabindex="5">Guardar</button>
+                    <a href="/marcas" class="btn btn-secondary">Cancelar</a>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+<%- include("../templates/footer") %> 
