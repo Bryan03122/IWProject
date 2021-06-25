@@ -1,0 +1,21 @@
+<%- include("templates/head2", {title: 'Resultados'}) %> 
+    <div class="resultados">
+    <h1 class="mb-4">Resultados</h1>
+    <% resultadosCamaras.forEach((camara) => { %> 
+            
+    <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+    <div class="card-header"><h4><%=camara.modelo%></h4> Afinidad: <%=camara.afinidad * 100%>%</div>
+    <div class="card-body">
+        <h6 class="card-title">Objetivos</h6> 
+        <% if(camara.objetivos.length === 0){ %>
+            <p class="card-text">No existen objetivos de acuerdo a tus especificaciones :(</p>
+        <% } else{ %>
+            <%camara.objetivos.forEach((objetivo) => { %>
+                <p class="card-text"><%=objetivo.modelo%></p>
+            <%})%>
+        <%}%>
+    </div>
+    </div>        
+        <%})%>
+    </div>
+<%- include("templates/footer") %> 

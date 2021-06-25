@@ -6,14 +6,14 @@
         <table id="camara" class="table table-bordered table-striped text-center mt-5">
             <thead>
                 <tr class="bg-dark text-white">
-                    <th scope="col">ID</th>
                     <th scope="col">MODELO</th>
                     <th scope="col">MARCA</th>
                     <th scope="col">MONTURA</th>
                     <th scope="col">RESOLUCIÓN</th>
                     <th scope="col">ISO MÍNIMO</th>
                     <th scope="col">ISO MÁXIMO</th>
-                    <th scope="col">TAMAÑO DEL SENSOR</th>
+                    <th scope="col">SENSOR</th>
+                    <th scope="col">NOCTURNO</th>
                     <th scope="col">PRECIO</th>
                     <th scope="col">ACCIONES</th>
                 </tr>
@@ -21,14 +21,14 @@
             <tbody>
                 <% results.forEach((camara) => { %> 
                 <tr>
-                    <td><%= camara.id_camara %></td>
                     <td><%= camara.modelo %></td>
                     <td><%= camara.marca%></td>
                     <td><%= camara.montura_modelo%></td>
                     <td><%= camara.resolucion%> mpx</td>
                     <td><%= camara.isoMinimo%></td>
                     <td><%= camara.isoMaximo%></td>
-                    <td><%= camara.tamanioSensor%></td>
+                    <td><%= camara.sensor%></td>
+                    <td><%= camara.nocturno%></td>
                     <td>$<%= camara.precio%></td>
                     <td>
                         <a href="/camaras/edit/<%= camara.id_camara %>" class="btn btn-outline-info"><i class="fas fa-edit"></i></a>

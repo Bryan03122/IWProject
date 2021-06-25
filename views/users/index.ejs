@@ -6,7 +6,6 @@
         <table id="users" class="table table-bordered table-striped text-center mt-5">
             <thead>
                 <tr class="bg-dark text-white">
-                    <th scope="col">ID</th>
                     <th scope="col">USUARIO</th>
                     <th scope="col">CONTRASEÑA</th>
                     <th scope="col">ACCIONES</th>
@@ -15,12 +14,10 @@
             <tbody>
                 <% results.forEach((user) => { %> 
                 <tr>
-                    <td><%= user.id %></td>
                     <td><%= user.user %></td>
                     <td><%= user.password %></td>
                     <td>
                         <a href="/users/edit/<%= user.id %>" class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
-                        <!-- <a href="/users/delete/<%= user.id %>" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></a> -->
                         <a onclick="confirmar(<%= user.id %>)" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>

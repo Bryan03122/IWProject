@@ -1,0 +1,38 @@
+<%- include("../templates/head", {title: 'Agregar Tipo de Fotos a Objetivos'}) %> 
+
+    <div class = 'container mt-4'>
+        <h1>Agregar Tipo de Fotos a Objetivos</h1>
+        <div class="card border-secondary">
+            <div class="card-header">Nuevo Registro</div>
+            <div class="card-body">
+                <form action="/objetivo_tipofoto/save" method="POST">
+                    <div class="mb-3">
+                        <label for="objetivo" class="form-label">Objetivo</label>
+                        <select name="objetivo" id="objetivo" class="form-select" tabindex="2"> 
+                                <option value="" selected disabled hidden>Seleccione una opción</option>
+                            <% objetivo.forEach((objetivo) => { %>
+                                <option value="<%= objetivo.id_objetivo%>"> <%= objetivo.modelo%> </option>
+                            <% }) %> 
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="tipofoto" class="form-label">Tipo de Foto</label>
+                        <select name="tipofoto" id="tipofoto" class="form-select" tabindex="2"> 
+                                <option value="" selected disabled hidden>Seleccione una opción</option>
+                                <option value="Retrato">Retrato</option>
+                                <option value="Paisaje">Paisaje</option>
+                                <option value="Producto">Producto</option>
+                                <option value="Urbano">Urbano</option>
+                                <option value="Macrofotografía">Macrofotografía</option>
+                                <option value="Casual">Casual</option>
+    
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" tabindex="5">Guardar</button>
+                    <a href="/objetivo_tipofoto" class="btn btn-secondary">Cancelar</a>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+<%- include("../templates/footer") %> 

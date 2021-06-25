@@ -1,0 +1,31 @@
+<%- include("templates/head2", {title: 'Presets'}) %> 
+    <div class = 'presets'> 
+
+        <h1>Presets Más Buscados</h1>
+        <table class="table table-responsive table-stripped">
+            <thead>
+                <tr>
+                    <th>Total</th>
+                    <th>Pregunta 1</th>
+                    <th>Pregunta 2</th>
+                    <th>Pregunta 3</th>
+                    <th>Pregunta 4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% resultadoPresets.forEach((preset) => {%>
+                    <tr>
+                        <td><%=preset.total%></td>
+                        <td><%=preset.marca%></td>
+                        <td><%=preset.pregunta2%></td>
+                        <td><%=preset.pregunta3%></td>
+                        <td><%=preset.pregunta4%></td>
+                    </tr>
+                <%})%>
+            </tbody>
+        </table>
+
+
+    </div>
+
+<%- include("templates/footer") %> 

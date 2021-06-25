@@ -1,0 +1,66 @@
+<%- include("../templates/head", {title: 'Objetivos'}) %> 
+    <div class = 'container mt-4'>
+        <h1><%= title %></h1>
+        <a href="/objetivos/create" class = "btn btn-outline-primary mt-3"><i class="fas fa-plus-circle"></i></a>
+        
+        <table id="objetivo" class="table table-bordered table-striped text-center mt-5">
+            <thead>
+                <tr class="bg-dark text-white">
+                    <th scope="col">MODELO</th>
+                    <th scope="col">MARCA</th>
+                    <th scope="col">MONTURA</th>
+                    <th scope="col">DISTANCIA FOCAL MIN</th>
+                    <th scope="col">DISTANCIA FOCAL MAX</th>
+                    <th scope="col">APERTURA MIN</th>
+                    <th scope="col">APERTURA MAX</th>
+                    <th scope="col">PRECIO</th>    
+                    <th scope="col">ACCIONES</th>  
+                </tr>
+            </thead>
+            <tbody>
+                <% results.forEach((objetivo) => { %> 
+                <tr>
+                    <td><%= objetivo.modelo %></td>
+                    <td><%= objetivo.marca%></td>
+                    <td><%= objetivo.montura_modelo%></td>
+                    <td><%= objetivo.distanciaFocalMinima%> mm</td>
+                    <td><%= objetivo.distanciaFocalMinima%> mm</td>
+                    <td><%= objetivo.aperturaMinima%></td>
+                    <td><%= objetivo.aperturaMaxima%></td>
+                    <td>$<%= objetivo.precio%></td>
+                    <td>
+                        <a href="/objetivos/edit/<%= objetivo.id_objetivo %>" class="btn btn-outline-info"><i class="fas fa-edit"></i></a>
+                        <a onclick="confirmar(<%= objetivo.id_objetivo %>)" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+                <% }) %> 
+            </tbody>
+        </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+        $('#objetivo').DataTable();
+        });
+
+        function confirmar(id){
+            Swal.fire({
+            title: '¿Estás seguro de eliminar el registro?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: `#3085d6`,
+            cancelButtonCOlor: `#d33`,
+            confirmButtonText: 'Confirmar',
+            cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location = '/objetivos/delete/'+id
+                } 
+            })
+        }
+    </script>
+   
+<%- include("../templates/footer") %> 

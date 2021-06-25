@@ -50,8 +50,21 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="tamaniosensor" class="form-label">Tamaño del Sensor</label>
-                        <input type="text" name="tamaniosensor" id="tamaniosensor" value="<%= camara.tamanioSensor%>" class="form-control" tabindex="1">
+                        <label for="sensor" class="form-label">Sensor</label>
+                        <select name="sensor" id="sensor" class="form-select">
+                            <option value="<%= camara.sensor%>" selected hidden><%= camara.sensor%></option>
+                            <option value="APS-C">APS-C</option>
+                            <option value="Full Frame">Full Frame</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="nocturno" class="form-label">Nocturno</label>
+                        <select name="nocturno" id="nocturno" class="form-select">
+                            <option value="<%= camara.nocturno%>" selected hidden><%= camara.nocturno%></option>
+                            <option value="Sí">Sí</option>
+                            <option value="No">No</option>
+                        </select>
                     </div>
 
                     <div class="mb-3">

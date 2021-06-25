@@ -1,0 +1,72 @@
+<%- include("../templates/head", {title: 'Editar Objetivo'}) %> 
+    <% if (objetivo) { %> 
+    <div class = 'container mt-4'>
+        <h1>Editar</h1>
+        <div class="card border-secondary">
+            <div class="card-header">Editar Registro</div>
+            <div class="card-body">
+                <form action="/objetivos/update" method="POST">
+
+                    <input id="id" name="id" value="<%= objetivo.id_objetivo%>" hidden>
+
+                    <div class="mb-3">
+                        <label for="modelo" class="form-label">Modelo</label>
+                        <input type="text" name="modelo" id="modelo" value="<%= objetivo.modelo%>" class="form-control" tabindex="1">
+                    </div>
+
+                    <div class="mb-3">
+                    <label for="marca" class="form-label">Marca</label>
+                        <select name="marca" id="marca" class="form-select" tabindex="2"> 
+                                <option value="<%= objetivo.marca_id %>" selected hidden><%= objetivo.marca%></option>
+                            <% marca.forEach((marca) => { %>
+                                <option value="<%= marca.id_marca %>"> <%= marca.marca%> </option>
+                            <% }) %> 
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                    <label for="montura" class="form-label">Montura</label>
+                        <select name="montura" id="montura" class="form-select" tabindex="3"> 
+                                <option value="<%= objetivo.montura_id %>" selected hidden><%= objetivo.montura_modelo%></option>
+                            <% montura.forEach((montura) => { %>
+                                <option value="<%= montura.id_montura %>"> <%= montura.modelo%> </option>
+                            <% }) %> 
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="distanciaFocalMinima" class="form-label">Distancia Focal Mínima</label>
+                        <input type="text" name="distanciaFocalMinima" id="distanciaFocalMinima" value="<%= objetivo.distanciaFocalMinima%>" class="form-control" tabindex="3">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="distanciaFocalMaxima" class="form-label">Distancia Focal Máxima</label>
+                        <input type="text" name="distanciaFocalMaxima" id="distanciaFocalMaxima" value="<%= objetivo.distanciaFocalMaxima%>" class="form-control" tabindex="4">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="aperturaMinima" class="form-label">Apertura Mínima</label>
+                        <input type="text" name="aperturaMinima" id="aperturaMinima" value="<%= objetivo.aperturaMinima%>" class="form-control" tabindex="5">
+                    </div>
+                    <div class="mb-3">
+                        <label for="aperturaMaxima" class="form-label">Apertura Máxima</label>
+                        <input type="text" name="aperturaMaxima" id="aperturaMaxima" value="<%= objetivo.aperturaMaxima%>" class="form-control" tabindex="5">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="precio" class="form-label">Precio</label>
+                        <input type="text" name="precio" id="precio" value="<%= objetivo.precio%>" class="form-control" tabindex="6">
+                    </div>
+
+    
+
+
+                    <button type="submit" class="btn btn-primary" tabindex="7">Guardar</button>
+                    <a href="/objetivos" class="btn btn-secondary">Cancelar</a>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+    <% } %> 
+<%- include("../templates/footer") %> 

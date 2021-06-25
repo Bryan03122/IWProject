@@ -1,11 +1,11 @@
-<%- include("../templates/head", {title: 'Crear Cámaras'}) %> 
+<%- include("../templates/head", {title: 'Crear Objetivos'}) %> 
 
     <div class = 'container mt-4'>
         <h1>Crear <%= title %></h1>
         <div class="card border-secondary">
             <div class="card-header">Nuevo Registro</div>
             <div class="card-body">
-                <form action="/camaras/save" method="POST">
+                <form action="/objetivos/save" method="POST">
                     <div class="mb-3">
                         <label for="modelo" class="form-label">Modelo</label>
                         <input type="text" name="modelo" id="modelo" class="form-control" tabindex="1">
@@ -20,7 +20,7 @@
                             <% }) %> 
                         </select>
                     </div>
-
+                    
                     <div class="mb-3">
                         <label for="montura" class="form-label">Montura</label>
                         <select name="montura" id="montura" class="form-select" tabindex="3"> 
@@ -30,46 +30,34 @@
                             <% }) %> 
                         </select>
                     </div>
-
                     <div class="mb-3">
-                        <label for="resolucion" class="form-label">Resolución</label>
-                        <input type="text" name="resolucion" id="resolucion" class="form-control" tabindex="4">
+                        <label for="distanciaFocalMinima" class="form-label">Distancia Focal Mínima</label>
+                        <input type="text" name="distanciaFocalMinima" id="distanciaFocalMinima" class="form-control" tabindex="3">
                     </div>
 
                     <div class="mb-3">
-                        <label for="isominimo" class="form-label">ISO Mínimo</label>
-                        <input type="text" name="isominimo" id="isominimo" class="form-control" tabindex="5">
+                        <label for="distanciaFocalMaxima" class="form-label">Distancia Focal Máxima</label>
+                        <input type="text" name="distanciaFocalMaxima" id="distanciaFocalMaxima" class="form-control" tabindex="4">
                     </div>
                     
                     <div class="mb-3">
-                        <label for="isomaximo" class="form-label">ISO Máximo</label>
-                        <input type="text" name="isomaximo" id="isomaximo" class="form-control" tabindex="6">
+                        <label for="aperturaMinima" class="form-label">Apertura Mínima</label>
+                        <input type="text" name="aperturaMinima" id="aperturaMinima" class="form-control" tabindex="5">
                     </div>
 
                     <div class="mb-3">
-                        <label for="sensor" class="form-label">Sensor</label>
-                        <select name="sensor" id="sensor" class="form-select">
-                            <option value="APS-C">APS-C</option>
-                            <option value="Full Frame">Full Frame</option>
-                        </select>
+                        <label for="aperturaMaxima" class="form-label">Apertura Máxima</label>
+                        <input type="text" name="aperturaMaxima" id="aperturaMaxima" class="form-control" tabindex="6">
                     </div>
-                    
-                    <div class="mb-3">
-                        <label for="nocturno" class="form-label">Nocturno</label>
-                        <select name="nocturno" id="nocturno" class="form-select">
-                            <option value="Sí">Sí</option>
-                            <option value="No">No</option>
-                        </select>
-                    </div>
+
                     <div class="mb-3">
                         <label for="precio" class="form-label">Precio</label>
-                        <input type="text" name="precio" id="precio" class="form-control" tabindex="5">
+                        <input type="text" name="precio" id="precio" class="form-control" tabindex="7">
                     </div>
 
-        
-
-                    <button type="submit" class="btn btn-primary" tabindex="5">Guardar</button>
-                    <a href="/camaras" class="btn btn-secondary">Cancelar</a>
+                
+                    <button type="submit" class="btn btn-primary" tabindex="8">Guardar</button>
+                    <a href="/objetivos" class="btn btn-secondary">Cancelar</a>
                 </form>
             </div>
         </div>

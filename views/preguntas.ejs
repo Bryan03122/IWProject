@@ -1,0 +1,65 @@
+<%- include("templates/head2", {title: 'Preguntas'}) %> 
+    <div class = 'encuesta'>
+        <form name="preguntas" id="preguntas" action="/resultado" method="POST">
+            <div class="container mt-2">
+                <h2>Empecemos con la Cámara</h2>
+                <p class="pregunta">¿Qué marca de cámara estás buscando?</p>
+                <div class="opciones">
+                    <% marca.forEach((marca) => { %>
+                        <input type="radio" name="marca" value="<%= marca.id_marca %>" required="required"> <%= marca.marca%><br>
+                    <% }) %> 
+                </div>
+                <p class="pregunta">¿En qué precio la estás buscando?</p>
+                <div class="opciones">
+                    <input type="radio" name="precioCamara" value="< 800" required = "required"> < 800 <br>
+                    <input type="radio" name="precioCamara" value=">=800 AND precio <1500"> < 1500 <br>
+                    <input type="radio" name="precioCamara" value=">=1500 "> > 1500 <br>
+                </div>
+                <p class="pregunta">¿Qué tipo de sensor prefiere?</p>
+                <div class="opciones">
+                    <input type="radio" name="sensor" value="Full-Frame"> Full-Frame (mayor calidad de imagen) <br>
+                    <input type="radio" name="sensor" value="APS-C"> APS-C (menor calidad de imagen) <br>
+                    
+                </div>
+                <p class="pregunta">¿Quisiera tomar fotografías durante la noche?</p>
+                <div class="opciones">
+                    <input type="radio" name="noche" value="Sí" required = "required"> Sí <br>
+                    <input type="radio" name="noche" value="No"> No <br>
+                </div>
+            </div>
+            <div class="line border-bottom-dark">
+                
+            </div>
+            <div class="container mt-2">
+                <h2 class="mt-4">Sigamos con el objetivo</h2>
+                <p class="pregunta">¿En qué precio lo estás buscando?</p>
+                <div class="opciones">
+                    <input type="radio" name="precioObjetivo" value="< 800" required = "required"> < 800 <br>
+                    <input type="radio" name="precioObjetivo" value=">=800 AND precio <1500"> < 1500 <br>
+                    <input type="radio" name="precioObjetivo" value="> 1500"> > 1500 <br>
+                </div>
+                <p class="pregunta">¿Qué tipo de fotografía quieres hacer?</p>
+                <div class="opciones">
+                    <div class="checkbox-group required">
+                        <input class="form-check-input" type="checkbox" name="retrato" value="Retrato"><label class="form-check-label" for="retrato">Retrato</label> <br>
+                        <input class="form-check-input" type="checkbox" name="paisaje" value="Paisaje"><label class="form-check-label" for="paisaje">Paisaje</label> <br>                    
+                        <input class="form-check-input" type="checkbox" name="producto" value="Producto"><label class="form-check-label" for="producto">Producto</label> <br>                                                  
+                        <input class="form-check-input" type="checkbox" name="urbano" value="Urbano"><label class="form-check-label" for="urbano">Urbano</label> <br>                                        
+                        <input class="form-check-input" type="checkbox" name="macrofotografia" value="Macrofotografía"><label class="form-check-label" for="macrofotografia">Macrofotografía</label> <br>                                                    
+                        <input class="form-check-input" type="checkbox" name="casual" value="Casual"><label class="form-check-label" for="casual">Casual</label> <br>
+                        
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-4">Enviar</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(document).ready(function() {
+        $('div.checkbox-group.required :checkbox:checked').length > 0;
+        })
+    </script>
+
+<%- include("templates/footer") %> 

@@ -1,5 +1,9 @@
-<%- include("templates/head", {title: '404'}) %> 
+<%- include("templates/head2", {title: '404'}) %> 
 <body>
-    <h1><%= title %></h1>
+    <div class="container mt-4">
+        <h1 class="mb-4">Error <%= title %></h1>
+        <a href="/"><button class="btn btn-primary">Volver a Inicio</button></a>
+        
+    </div>
    
 <%- include("templates/footer") %> 
